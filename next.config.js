@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+const nextConfig = {
+    productionBrowserSourceMaps: process.env.NODE_ENV !== 'production',
+  };
+module.exports = nextConfig;
