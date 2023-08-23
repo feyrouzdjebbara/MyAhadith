@@ -2,17 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
-   
-  await new Promise((resolve) => {
-    setTimeout(()=>{
-        resolve()
-    },2000)
-   })
+  
     const response = await fetch(
         'https://api.hadith.gading.dev/books',
         {
            next :{
-            revalidate:120 //ISR reload every 2 min 
+            revalidate:300 //ISR reload every 2 min 
            }
         }
     )

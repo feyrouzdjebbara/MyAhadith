@@ -1,49 +1,59 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-
-export default async function BookDetails({booktId}) {
+export default function BookDetails({ booktId }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredHadiths, setFilteredHadiths] = useState([]);
+  const [searchedHadiths, setSearchedHadiths] = useState([]); // Separate state for searchedHadiths
   const [noResults, setNoResults] = useState(false);
+
   function removeDiacritics(text) {
     return text.replace(/[\u064B-\u065F\u0670\u0674]/g, '');
-     // Regular expression to match diacritics
-}
-
+    // Regular expression to match diacritics
+  }
 
   useEffect(() => {
-      // Fetch data and set hadiths and filteredHadiths
-      async function fetchData() {
-          const response = await fetch(
-              `https://api.hadith.gading.dev/books/${booktId}?range=1-300`,
-              {
-                  next: {
-                      revalidate: 120 // ISR reload every 2 min
-                  }
-              }
-          );
-          const book = await response.json();
-          const hadiths = book.data.hadiths;
-          setFilteredHadiths(hadiths);
+    // Fetch data and set hadiths and searchedHadiths
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `https://api.hadith.gading.dev/books/${booktId}?range=1-300`,
+          {
+            next: {
+              revalidate: 300 // ISR reload every 2 min
+            }
+          }
+        );
+        const book = await response.json();
+        const hadiths = book.data.hadiths;
+        setFilteredHadiths(hadiths);
+        setSearchedHadiths(hadiths); // Set searchedHadiths here
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
+    }
 
-      fetchData();
+    fetchData();
   }, [booktId]);
 
   const handleSearch = () => {
     if (searchTerm.trim() === '') {
-        setFilteredHadiths(hadiths);
-        setNoResults(false);
+      setFilteredHadiths(searchedHadiths); // Restore all hadiths
+      setNoResults(false);
     } else {
-        const searchTermWithoutDiacritics = removeDiacritics(searchTerm);
-        const filtered = filteredHadiths.filter((hadith) =>
-            removeDiacritics(hadith.arab).includes(searchTermWithoutDiacritics)
-        );
-        setFilteredHadiths(filtered);
-        setNoResults(filtered.length === 0);
+      const searchTermWithoutDiacritics = removeDiacritics(searchTerm);
+      const filtered = searchedHadiths.filter((hadith) =>
+        removeDiacritics(hadith.arab).includes(searchTermWithoutDiacritics)
+      );
+      setFilteredHadiths(filtered);
+      setNoResults(filtered.length === 0);
     }
-};
+  };
+
+const handleChange =(e)=>{
+  setSearchTerm(e.target.value)
+  
+}
 
 
   return (
@@ -55,47 +65,35 @@ export default async function BookDetails({booktId}) {
   </div>
 
   <div className="mt-4 flex justify-center items-center">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="حديث"
-                    className="focus:border-green-700 border-2 outline-none border-gray-300 rounded-full p-2"
-                />
-                <button
-                    onClick={handleSearch}
-                    className="ml-2 px-4 py-2 bg-green-700 text-white  rounded-full "
-                >
-                   <img src="/search.svg" alt="Search" className="w-6 h-6 " />
-                </button>
-            </div>
+  <input
+    type="text"
+    value={searchTerm}
+    onChange={handleChange}
+    placeholder="حديث"
+    className="border p-2 rounded-full focus:border-green-700  outline-none"
+  />
+  <button
+    onClick={handleSearch}
+    className="bg-green-700 text-white px-4 py-2 rounded-full ml-2"
+  >
+    <img src="/search.svg" alt="Search" className="w-6 h-6" />
+  </button>
+</div>
 
 
-    <div className="flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:shadow-md rounded-3xl"> 
+            <div className="mt-6 space-y-4 p-8">
+        {filteredHadiths.map((hadith) => (
+          <div
+            key={hadith.number}
+            className="bg-white hover:bg-white hover:shadow-md rounded-3xl shadow-md ring-2 ring-green-700 focus:outline-none sm:text-sm p-3"
+          >
+            <p className="text-right text-[14px]">{hadith.arab}</p>
+            <p className="text-center text-[14px]">{hadith.number}</p>
+          </div>
+        ))}
+      </div>
      
-     <div className="w-full flex justify-between items-start gap-2">
-    
-    <div>
-    {filteredHadiths.map((hadith) => (
-                            <div className=" bg-white hover:bg-white hover:shadow-md rounded-3xl shadow-md ring-2 ring-green-700 focus:outline-none sm:text-sm">
-                               
-                            <p className="text-right mt-6 text-[14px] p-3">
-                                    {hadith.arab} <br/>
-                                </p>
-                                <p className=" text-center flex text-[14px] p-4 mt-0">
-                                
-                                    {hadith.number} <br/>
-                                </p>
-                            </div>
-                        ))}
-      
-       </div>
-       
-     </div>
-     
-    
-     
-   </div>
+   
    {noResults && (
     <div className="flex items-center justify-center h-screen">
     <p className="text-bold">لا يوجد أحاديث تطابق البحث</p>

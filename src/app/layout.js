@@ -1,16 +1,8 @@
 "use client"
 import Footer from '@/Components/Footer';
 import './globals.css'
-import { Inter } from 'next/font/google'
+
 import Link from 'next/link'
-
-
-const inter = Inter({ subsets: ['latin'] })
-
-export const metadata = {
-  title: 'My Ahadith',
-  description: 'My Ahadith',
-}
 
 
 export default function RootLayout({ children }) {
@@ -19,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
    
     <html >
-      <body className={inter.className}>
+      <body >
         <nav className="bg-green-700 border-b border-gray-200 dark:bg-gray-900 rounded-b-lg">
           <div className="max-w-screen-xl mx-auto px-4 py-2 flex justify-between items-center">
             <Link href="/">
