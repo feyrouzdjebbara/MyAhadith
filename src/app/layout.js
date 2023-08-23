@@ -1,17 +1,28 @@
 "use client"
 import Footer from '@/Components/Footer';
 import './globals.css'
+<<<<<<< HEAD
 
 import Link from 'next/link'
 
 
+=======
+import Link from 'next/link'
+
+
+
+>>>>>>> 4fd5c25b38c82a8afada72f618be61de30cb770a
 export default function RootLayout({ children }) {
 
  
   return (
    
     <html >
+<<<<<<< HEAD
       <body >
+=======
+      <body>
+>>>>>>> 4fd5c25b38c82a8afada72f618be61de30cb770a
         <nav className="bg-green-700 border-b border-gray-200 dark:bg-gray-900 rounded-b-lg">
           <div className="max-w-screen-xl mx-auto px-4 py-2 flex justify-between items-center">
             <Link href="/">
