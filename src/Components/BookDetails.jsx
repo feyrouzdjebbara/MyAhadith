@@ -64,7 +64,7 @@ const handleChange =(e)=>{
           <h2 className="text-[18px] leading-[18px] font-bold capitalize rtl">   ({booktId} Ahadith list) قائمة أحاديث  {translateBookName(booktId)}</h2>
   </div>
 
-  <div className="mt-4 flex justify-center items-center">
+  <div class="input-container">
   <input
     type="text"
     value={searchTerm}
