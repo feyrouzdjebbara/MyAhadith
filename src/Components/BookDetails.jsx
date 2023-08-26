@@ -76,7 +76,7 @@ const handleChange =(e)=>{
     onClick={handleSearch}
    class="custom-button"
   >
-    <img src="/search.svg" alt="Search" className="w-6 h-6" />
+    <img src="/search.svg" alt="Search" class="search-icon" />
   </button>
 </div>
 
