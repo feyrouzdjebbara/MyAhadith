@@ -66,15 +66,10 @@
 }
 .button-style2 {
   background-color: #fff;
-  border: 2px solid  #00863c;
-  display: block;
- 
-  flex-direction: column;
+  border: 2px solid #00863c;
   padding: 1.5rem;
-
- justify-content: right;
+  justify-content: right;
   color: #000;
-  background-color: white;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   cursor: pointer;
   border-radius: 1rem;
