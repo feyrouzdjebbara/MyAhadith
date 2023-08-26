@@ -85,8 +85,7 @@ const handleChange =(e)=>{
         {filteredHadiths.map((hadith) => (
           <div
             key={hadith.number}
-            className="bg-white hover:bg-white hover:shadow-md rounded-3xl shadow-md ring-2 ring-green-700 focus:outline-none sm:text-sm p-3"
-          >
+          className="my-custom-style">
             <p className="text-right text-[14px]">{hadith.arab}</p>
             <p className="text-center text-[14px]">{hadith.number}</p>
           </div>
