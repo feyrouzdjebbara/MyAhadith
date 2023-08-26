@@ -74,3 +74,14 @@
   background-color:  #00863c;
 }
 
+.search-icon {
+  width: 1.5rem; /* Ajustez la largeur en fonction de vos besoins */
+  height: 1.5rem; /* Ajustez la hauteur en fonction de vos besoins */
+  /* Ajoutez d'autres styles si nécessaire */
+}
+
+/* Style pour le chemin du SVG avec largeur et hauteur */
+.search-icon-path {
+  width: 1.5rem; /* Ajustez la largeur en fonction de vos besoins */
+  height: 1.5rem; /* Ajustez la hauteur en fonction de vos besoins */
+}
