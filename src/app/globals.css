@@ -87,3 +87,14 @@
   display: flex;
   justify-content: center;
 }
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #e2e8f0; /* Utilisez la couleur de bordure souhaitée */
+  color: #4a5568; /* Utilisez la couleur de texte souhaitée */
+  font-size: 0.6rem; /* Ajustez la taille de police selon vos besoins */
+  padding: 1.25rem; /* Ajustez le rembourrage selon vos besoins */
+}
+
