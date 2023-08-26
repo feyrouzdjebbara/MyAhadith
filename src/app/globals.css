@@ -46,3 +46,31 @@
   .my-custom-style .text {
     font-size: 0.875rem;
   }
+  /* Style CSS Normal */
+.custom-input {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.custom-input:focus {
+  border-color:  #00863c;
+  outline: none;
+}
+
+.custom-button {
+  background-color:  #00863c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.custom-button:hover {
+  background-color:  #00863c;
+}
+
