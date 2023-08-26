@@ -68,11 +68,11 @@
   background-color: #fff;
   border: 2px solid  #00863c;
   display: block;
-  
+  text-align: right;
   flex-direction: column;
   padding: 1.5rem;
   justify-content: center;
-  align-items: start;
+ 
   color: #000;
   background-color: white;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
