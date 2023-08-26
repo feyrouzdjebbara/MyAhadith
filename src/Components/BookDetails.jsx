@@ -70,11 +70,11 @@ const handleChange =(e)=>{
     value={searchTerm}
     onChange={handleChange}
     placeholder="حديث"
-    className="border p-2 rounded-full focus:border-green-700  outline-none"
+   class="custom-input"
   />
   <button
     onClick={handleSearch}
-    className="bg-green-700 text-white px-4 py-2 rounded-full ml-2"
+   class="custom-button"
   >
     <img src="/search.svg" alt="Search" className="w-6 h-6" />
   </button>
