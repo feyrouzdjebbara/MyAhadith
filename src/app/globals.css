@@ -24,12 +24,13 @@
     background-color: yellow;
     font-weight: bold;
 }
- .my-custom-style {
+.my-custom-style {
     background-color: white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
     border-radius: 1.5rem;
     border-width: 2px;
-    border-color: #34d399;
+    border-color:  #015637;
+    border:20px;
     outline: none;
     padding: 0.75rem;
   }
@@ -42,7 +43,6 @@
   .my-custom-style:focus {
     box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.5);
   }
-  
   .my-custom-style .text {
     font-size: 0.875rem;
   }
