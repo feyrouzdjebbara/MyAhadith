@@ -37,6 +37,7 @@
 .custom-input:focus {
   border-color:  #00863c;
   outline: none;
+ text-align: right;
 }
 
 .custom-button {
