@@ -23,7 +23,7 @@ export default async function Home() {
             <li key={book.id}>
                 <Link href={`/book/${book.id}`}>
                     
-                        <button className=" bg-white border-2 border-green-700 block text-right  flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-green-700 hover:text-white hover:shadow-md shadow-green-600 rounded-3xl w-full">
+                        <button class="button-style2">
                             
                             <p className="m-3 text-[18px] font-bold capitalize rtl">({book.name}) {translateBookName(book.id)}</p>
                             
