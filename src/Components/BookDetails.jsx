@@ -65,19 +65,20 @@ const handleChange =(e)=>{
   </div>
 
   <div class="input-container">
-  <input
-    type="text"
-    value={searchTerm}
-    onChange={handleChange}
-    placeholder="حديث"
-   class="custom-input"
-  />
-  <button
+     <button
     onClick={handleSearch}
    class="custom-button"
   >
     <img src="/search.svg" alt="Search" class="search-icon" />
   </button>
+  <input
+    type="text"
+    value={searchTerm}
+    onChange={handleChange}
+    placeholder="...ابحث عن الحديث"
+   class="custom-input"
+  />
+ 
 </div>
 
 
